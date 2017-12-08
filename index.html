@@ -25,6 +25,7 @@
       <div class="container">
         <h1 class="display-3">D3 V4 Force Layout Editor</h1>
         <p>This is a playground for the forces in D3 V4 force layout.</p>
+        <p>Example taken from <a href="https://bl.ocks.org/mbostock/4062045">https://bl.ocks.org/mbostock/4062045</a></p>
       </div>
     </div>
 
@@ -605,8 +606,41 @@
           <h2>Code</h2>
 
 
-          <pre><code class="javascript">
+          <pre><code class="javascript" id="code-output">
 </code></pre>
+        </div>
+      </div>
+
+
+      
+            <hr/><br/>
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Util - Export JSON graph in Python</h2>
+          <p>Code example to export a JSON from an adjency matrix in Python</p>
+<pre>
+  <code class="python">import json
+
+nodes = [{'id':a, 'group':'red'} for a in RED_LIST] + [{'id':a, 'group':'blue'} for a in BLUE_LIST]
+links = []
+
+for index, a in enumerate(matrix):
+    for index2, b in enumerate(a):
+        if b and index > index2:
+            links.append({
+                'source':index,
+                'target':index2,
+                'value':1
+            })
+graph = {
+    'nodes':nodes,
+    'links':links
+}
+
+with open('graph.json', 'w') as outfile:
+    json.dump(graph, outfile)
+  </code>
+</pre>
         </div>
       </div>
 
