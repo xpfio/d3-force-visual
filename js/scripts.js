@@ -219,7 +219,7 @@ setUpdates();
 
 updateGraph = () => {
     simulation.alpha(1);
-    graph = d3.select('#graph-input').text()
+    graph = d3.select('#graph-input').node().value
     graph = JSON.parse(graph);
     console.log(graph)
 
